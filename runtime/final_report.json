@@ -1,0 +1,447 @@
+{
+  "patient_summary": {
+    "provided": [
+      {
+        "field": "diabetes_type",
+        "value": [
+          {
+            "operator": "=",
+            "operand": "1型"
+          }
+        ]
+      },
+      {
+        "field": "dme_type",
+        "value": [
+          {
+            "operator": "=",
+            "operand": "CI-DME"
+          }
+        ]
+      },
+      {
+        "field": "dr_severity",
+        "value": [
+          {
+            "operator": "=",
+            "operand": "PDR"
+          }
+        ]
+      },
+      {
+        "field": "visual_acuity",
+        "value": [
+          {
+            "operator": "=",
+            "operand": 0.3
+          }
+        ]
+      },
+      {
+        "field": "sex",
+        "value": [
+          {
+            "operator": "=",
+            "operand": "女"
+          }
+        ]
+      },
+      {
+        "field": "age",
+        "value": [
+          {
+            "operator": "=",
+            "operand": 45
+          }
+        ]
+      }
+    ],
+    "inferred": [
+      {
+        "field": "diabetes_onset_age",
+        "value": [
+          {
+            "operator": "=",
+            "operand": 33
+          }
+        ],
+        "source_text": "女性，45岁，1型糖尿病12年"
+      }
+    ],
+    "not_applicable": [],
+    "missing": [
+      {
+        "field": "pregnancy_with_diabetes_status"
+      },
+      {
+        "field": "vision_symptom"
+      }
+    ]
+  },
+  "matched_rules": [
+    {
+      "rule_id": "SCREEN-010",
+      "priority_rank": 1,
+      "rule_type": "screening",
+      "rule_prompt": "随访频率可考虑1个月",
+      "uncertainty": null,
+      "source_reference": "PDR患者随访频率可考虑1个月",
+      "condition_trace": [
+        {
+          "field": "dr_severity",
+          "operator": "=",
+          "expected": "PDR",
+          "actual": [
+            {
+              "operator": "=",
+              "operand": "PDR"
+            }
+          ],
+          "variable_status": "provided",
+          "condition_status": "true"
+        }
+      ],
+      "condition_summary": "dr_severity = PDR（已提供 = PDR）"
+    },
+    {
+      "rule_id": "SCREEN-011",
+      "priority_rank": 1,
+      "rule_type": "screening",
+      "rule_prompt": "每月随访1次",
+      "uncertainty": null,
+      "source_reference": "CI-DME患者每月随访1次",
+      "condition_trace": [
+        {
+          "field": "dme_type",
+          "operator": "=",
+          "expected": "CI-DME",
+          "actual": [
+            {
+              "operator": "=",
+              "operand": "CI-DME"
+            }
+          ],
+          "variable_status": "provided",
+          "condition_status": "true"
+        }
+      ],
+      "condition_summary": "dme_type = CI-DME（已提供 = CI-DME）"
+    },
+    {
+      "rule_id": "SCREEN-013",
+      "priority_rank": 1,
+      "rule_type": "screening",
+      "rule_prompt": "应及时到有眼底病医疗资源的医院就诊",
+      "uncertainty": null,
+      "source_reference": "一旦视力≤0.7（20/30或4.8）或者患者出现突发的视力下降以及视物模糊应及时到有眼底病医疗资源的医院就诊",
+      "condition_trace": [
+        {
+          "field": "visual_acuity",
+          "operator": "<=",
+          "expected": 0.7,
+          "actual": [
+            {
+              "operator": "=",
+              "operand": 0.3
+            }
+          ],
+          "variable_status": "provided",
+          "condition_status": "true"
+        },
+        {
+          "field": "vision_symptom",
+          "operator": "=",
+          "expected": "突发视力下降",
+          "actual": [],
+          "variable_status": "missing",
+          "condition_status": "unknown"
+        },
+        {
+          "field": "vision_symptom",
+          "operator": "=",
+          "expected": "视物模糊",
+          "actual": [],
+          "variable_status": "missing",
+          "condition_status": "unknown"
+        }
+      ],
+      "condition_summary": "visual_acuity <= 0.7（已提供 = 0.3） 且 vision_symptom = 突发视力下降（缺失） 且 vision_symptom = 视物模糊（缺失）"
+    },
+    {
+      "rule_id": "SCREEN-002",
+      "priority_rank": 2,
+      "rule_type": "screening",
+      "rule_prompt": "起病5年内筛查，之后应每年随诊1次",
+      "uncertainty": null,
+      "source_reference": "12岁之后发病者，起病5年内筛查，之后应每年随诊1次",
+      "condition_trace": [
+        {
+          "field": "diabetes_type",
+          "operator": "=",
+          "expected": "1型",
+          "actual": [
+            {
+              "operator": "=",
+              "operand": "1型"
+            }
+          ],
+          "variable_status": "provided",
+          "condition_status": "true"
+        },
+        {
+          "field": "diabetes_onset_age",
+          "operator": ">=",
+          "expected": 12,
+          "actual": [
+            {
+              "operator": "=",
+              "operand": 33
+            }
+          ],
+          "variable_status": "inferred",
+          "condition_status": "true"
+        }
+      ],
+      "condition_summary": "diabetes_type = 1型（已提供 = 1型） 且 diabetes_onset_age >= 12（推断 = 33）"
+    }
+  ],
+  "undetermined_rules": [
+    {
+      "rule_id": "SCREEN-004",
+      "priority_rank": 3,
+      "rule_type": "screening",
+      "rule_prompt": "应在妊娠或第1次产检时筛查，妊娠后每3个月筛查，产后1年时筛查",
+      "uncertainty": null,
+      "source_reference": "对于在怀孕前诊断的糖尿病患者（糖尿病合并妊娠），应在妊娠或第1次产检时筛查，妊娠后每3个月筛查，产后1年时筛查",
+      "condition_trace": [
+        {
+          "field": "pregnancy_with_diabetes_status",
+          "operator": "=",
+          "expected": "糖尿病合并妊娠",
+          "actual": [],
+          "variable_status": "missing",
+          "condition_status": "unknown"
+        }
+      ],
+      "missing_variables": [
+        {
+          "field": "pregnancy_with_diabetes_status",
+          "reason": "missing_from_input",
+          "source_text": ""
+        }
+      ]
+    },
+    {
+      "rule_id": "SCREEN-005",
+      "priority_rank": 3,
+      "rule_type": "screening",
+      "rule_prompt": "在怀孕期间不需要进行眼底检查",
+      "uncertainty": {
+        "level": "high",
+        "reason": "对于妊娠期糖尿病患者高质量的研究较少，目前尚无统一认识"
+      },
+      "source_reference": "AAO指南提到妊娠期糖尿病患者在怀孕期间不需要进行眼底检查",
+      "condition_trace": [
+        {
+          "field": "pregnancy_with_diabetes_status",
+          "operator": "=",
+          "expected": "妊娠期糖尿病",
+          "actual": [],
+          "variable_status": "missing",
+          "condition_status": "unknown"
+        }
+      ],
+      "missing_variables": [
+        {
+          "field": "pregnancy_with_diabetes_status",
+          "reason": "missing_from_input",
+          "source_text": ""
+        }
+      ]
+    }
+  ],
+  "not_applicable_rules": [],
+  "not_matched_rules": [
+    {
+      "rule_id": "SCREEN-001",
+      "priority_rank": 4,
+      "rule_type": "screening",
+      "rule_prompt": "自12岁起每年筛查",
+      "uncertainty": null,
+      "source_reference": "1型糖尿病：12岁之前发病者，自12岁起每年筛查",
+      "condition_trace": [
+        {
+          "field": "diabetes_type",
+          "operator": "=",
+          "expected": "1型",
+          "actual": [
+            {
+              "operator": "=",
+              "operand": "1型"
+            }
+          ],
+          "variable_status": "provided",
+          "condition_status": "true"
+        },
+        {
+          "field": "diabetes_onset_age",
+          "operator": "<",
+          "expected": 12,
+          "actual": [
+            {
+              "operator": "=",
+              "operand": 33
+            }
+          ],
+          "variable_status": "inferred",
+          "condition_status": "false"
+        }
+      ],
+      "condition_summary": "diabetes_type = 1型（已提供 = 1型） 且 diabetes_onset_age < 12（推断 = 33）"
+    },
+    {
+      "rule_id": "SCREEN-003",
+      "priority_rank": 5,
+      "rule_type": "screening",
+      "rule_prompt": "应在确诊时开始筛查眼底病变，每年随诊1次",
+      "uncertainty": null,
+      "source_reference": "2型糖尿病：应在确诊时开始筛查眼底病变，每年随诊1次",
+      "condition_trace": [
+        {
+          "field": "diabetes_type",
+          "operator": "=",
+          "expected": "2型",
+          "actual": [
+            {
+              "operator": "=",
+              "operand": "1型"
+            }
+          ],
+          "variable_status": "provided",
+          "condition_status": "false"
+        }
+      ],
+      "condition_summary": "diabetes_type = 2型（已提供 = 1型）"
+    },
+    {
+      "rule_id": "SCREEN-006",
+      "priority_rank": 5,
+      "rule_type": "screening",
+      "rule_prompt": "至少每1～2年复查1次",
+      "uncertainty": null,
+      "source_reference": "无DR者至少每1～2年复查1次",
+      "condition_trace": [
+        {
+          "field": "dr_severity",
+          "operator": "=",
+          "expected": "无DR",
+          "actual": [
+            {
+              "operator": "=",
+              "operand": "PDR"
+            }
+          ],
+          "variable_status": "provided",
+          "condition_status": "false"
+        }
+      ],
+      "condition_summary": "dr_severity = 无DR（已提供 = PDR）"
+    },
+    {
+      "rule_id": "SCREEN-007",
+      "priority_rank": 5,
+      "rule_type": "screening",
+      "rule_prompt": "每6～12个月复查1次",
+      "uncertainty": null,
+      "source_reference": "轻度NPDR患者每6～12个月复查1次",
+      "condition_trace": [
+        {
+          "field": "dr_severity",
+          "operator": "=",
+          "expected": "轻度NPDR",
+          "actual": [
+            {
+              "operator": "=",
+              "operand": "PDR"
+            }
+          ],
+          "variable_status": "provided",
+          "condition_status": "false"
+        }
+      ],
+      "condition_summary": "dr_severity = 轻度NPDR（已提供 = PDR）"
+    },
+    {
+      "rule_id": "SCREEN-008",
+      "priority_rank": 5,
+      "rule_type": "screening",
+      "rule_prompt": "每3～6个月复查1次",
+      "uncertainty": null,
+      "source_reference": "中度NPDR患者每3～6个月复查1次",
+      "condition_trace": [
+        {
+          "field": "dr_severity",
+          "operator": "=",
+          "expected": "中度NPDR",
+          "actual": [
+            {
+              "operator": "=",
+              "operand": "PDR"
+            }
+          ],
+          "variable_status": "provided",
+          "condition_status": "false"
+        }
+      ],
+      "condition_summary": "dr_severity = 中度NPDR（已提供 = PDR）"
+    },
+    {
+      "rule_id": "SCREEN-009",
+      "priority_rank": 5,
+      "rule_type": "screening",
+      "rule_prompt": "随访频率应＜3个月",
+      "uncertainty": null,
+      "source_reference": "重度NPDR患者随访频率应＜3个月",
+      "condition_trace": [
+        {
+          "field": "dr_severity",
+          "operator": "=",
+          "expected": "重度NPDR",
+          "actual": [
+            {
+              "operator": "=",
+              "operand": "PDR"
+            }
+          ],
+          "variable_status": "provided",
+          "condition_status": "false"
+        }
+      ],
+      "condition_summary": "dr_severity = 重度NPDR（已提供 = PDR）"
+    },
+    {
+      "rule_id": "SCREEN-012",
+      "priority_rank": 5,
+      "rule_type": "screening",
+      "rule_prompt": "每3个月随访1次",
+      "uncertainty": null,
+      "source_reference": "NCI-DME患者每3个月随访1次",
+      "condition_trace": [
+        {
+          "field": "dme_type",
+          "operator": "=",
+          "expected": "NCI-DME",
+          "actual": [
+            {
+              "operator": "=",
+              "operand": "CI-DME"
+            }
+          ],
+          "variable_status": "provided",
+          "condition_status": "false"
+        }
+      ],
+      "condition_summary": "dme_type = NCI-DME（已提供 = CI-DME）"
+    }
+  ]
+}

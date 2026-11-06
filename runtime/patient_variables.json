@@ -1,0 +1,91 @@
+{
+  "diabetes_onset_age": {
+    "value": [
+      {
+        "operator": "=",
+        "operand": 33
+      }
+    ],
+    "status": "inferred",
+    "source_text": "女性，45岁，1型糖尿病12年",
+    "confidence": "medium"
+  },
+  "diabetes_type": {
+    "value": [
+      {
+        "operator": "=",
+        "operand": "1型"
+      }
+    ],
+    "status": "provided",
+    "source_text": "1型糖尿病",
+    "confidence": "high"
+  },
+  "dme_type": {
+    "value": [
+      {
+        "operator": "=",
+        "operand": "CI-DME"
+      }
+    ],
+    "status": "provided",
+    "source_text": "PDR合并CI-DME",
+    "confidence": "high"
+  },
+  "dr_severity": {
+    "value": [
+      {
+        "operator": "=",
+        "operand": "PDR"
+      }
+    ],
+    "status": "provided",
+    "source_text": "PDR合并CI-DME",
+    "confidence": "high"
+  },
+  "pregnancy_with_diabetes_status": {
+    "value": [],
+    "status": "missing",
+    "source_text": "",
+    "confidence": "low"
+  },
+  "vision_symptom": {
+    "value": [],
+    "status": "missing",
+    "source_text": "",
+    "confidence": "low"
+  },
+  "visual_acuity": {
+    "value": [
+      {
+        "operator": "=",
+        "operand": 0.3
+      }
+    ],
+    "status": "provided",
+    "source_text": "BCVA 0.3（双眼）",
+    "confidence": "high"
+  },
+  "sex": {
+    "value": [
+      {
+        "operator": "=",
+        "operand": "女"
+      }
+    ],
+    "status": "provided",
+    "source_text": "user_provided",
+    "confidence": "high"
+  },
+  "age": {
+    "value": [
+      {
+        "operator": "=",
+        "operand": 45
+      }
+    ],
+    "status": "provided",
+    "source_text": "user_provided",
+    "confidence": "high"
+  }
+}

@@ -1,0 +1,151 @@
+[
+  {
+    "field": "diabetes_onset_age",
+    "type": "numeric",
+    "values": [],
+    "rule_ids": [
+      "SCREEN-001",
+      "SCREEN-002"
+    ]
+  },
+  {
+    "field": "diabetes_type",
+    "type": "enum",
+    "values": [
+      {
+        "value": "1型",
+        "rule_ids": [
+          "SCREEN-001",
+          "SCREEN-002"
+        ]
+      },
+      {
+        "value": "2型",
+        "rule_ids": [
+          "SCREEN-003"
+        ]
+      }
+    ],
+    "rule_ids": [
+      "SCREEN-001",
+      "SCREEN-002",
+      "SCREEN-003"
+    ]
+  },
+  {
+    "field": "dme_type",
+    "type": "enum",
+    "values": [
+      {
+        "value": "CI-DME",
+        "rule_ids": [
+          "SCREEN-011"
+        ]
+      },
+      {
+        "value": "NCI-DME",
+        "rule_ids": [
+          "SCREEN-012"
+        ]
+      }
+    ],
+    "rule_ids": [
+      "SCREEN-011",
+      "SCREEN-012"
+    ]
+  },
+  {
+    "field": "dr_severity",
+    "type": "enum",
+    "values": [
+      {
+        "value": "无DR",
+        "rule_ids": [
+          "SCREEN-006"
+        ]
+      },
+      {
+        "value": "轻度NPDR",
+        "rule_ids": [
+          "SCREEN-007"
+        ]
+      },
+      {
+        "value": "中度NPDR",
+        "rule_ids": [
+          "SCREEN-008"
+        ]
+      },
+      {
+        "value": "重度NPDR",
+        "rule_ids": [
+          "SCREEN-009"
+        ]
+      },
+      {
+        "value": "PDR",
+        "rule_ids": [
+          "SCREEN-010"
+        ]
+      }
+    ],
+    "rule_ids": [
+      "SCREEN-006",
+      "SCREEN-007",
+      "SCREEN-008",
+      "SCREEN-009",
+      "SCREEN-010"
+    ]
+  },
+  {
+    "field": "pregnancy_with_diabetes_status",
+    "type": "enum",
+    "values": [
+      {
+        "value": "糖尿病合并妊娠",
+        "rule_ids": [
+          "SCREEN-004"
+        ]
+      },
+      {
+        "value": "妊娠期糖尿病",
+        "rule_ids": [
+          "SCREEN-005"
+        ]
+      }
+    ],
+    "rule_ids": [
+      "SCREEN-004",
+      "SCREEN-005"
+    ]
+  },
+  {
+    "field": "vision_symptom",
+    "type": "enum",
+    "values": [
+      {
+        "value": "突发视力下降",
+        "rule_ids": [
+          "SCREEN-013"
+        ]
+      },
+      {
+        "value": "视物模糊",
+        "rule_ids": [
+          "SCREEN-013"
+        ]
+      }
+    ],
+    "rule_ids": [
+      "SCREEN-013"
+    ]
+  },
+  {
+    "field": "visual_acuity",
+    "type": "numeric",
+    "values": [],
+    "rule_ids": [
+      "SCREEN-013"
+    ]
+  }
+]
