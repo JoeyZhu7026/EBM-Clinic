@@ -6,6 +6,11 @@
 
 > **声明**：本工具仅供技术演示与学习，输出不构成医疗建议，请勿用于临床决策。
 
+## 作者
+
+**朱弈（JoeyZhu7026）** — 作者与维护者  
+GitHub: [@JoeyZhu7026](https://github.com/JoeyZhu7026)
+
 ## 功能特性
 
 - **规则自动提取** — 粘贴指南原文，由 LLM 提取结构化筛查规则（患者条件 + 建议内容），保留原文溯源。
@@ -28,7 +33,7 @@
 ### 1. 克隆项目
 
 ```bash
-git clone https://github.com/<your-username>/EBM-Clinic.git
+git clone https://github.com/JoeyZhu7026/EBM-Clinic.git
 cd EBM-Clinic
 ```
 
@@ -114,4 +119,6 @@ Demo 版每次启动清空工作台产物，需手动点击「提取规则」「
 
 ## License
 
-MIT
+MIT © 2026 朱弈 (JoeyZhu7026)
+
+本项目采用 MIT License，详见 [LICENSE](LICENSE) 文件。
