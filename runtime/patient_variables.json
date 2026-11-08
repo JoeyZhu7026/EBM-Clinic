@@ -1,0 +1,88 @@
+{
+  "diabetes_onset_age": {
+    "value": [
+      {
+        "operator": "=",
+        "operand": 50
+      }
+    ],
+    "status": "inferred",
+    "source_text": "患者，男，58岁，2型糖尿病史8年",
+    "confidence": "medium"
+  },
+  "diabetes_type": {
+    "value": [
+      {
+        "operator": "=",
+        "operand": "2型"
+      }
+    ],
+    "status": "provided",
+    "source_text": "2型糖尿病史8年",
+    "confidence": "high"
+  },
+  "dme_type": {
+    "value": [],
+    "status": "missing",
+    "source_text": "",
+    "confidence": "low"
+  },
+  "dr_severity": {
+    "value": [],
+    "status": "missing",
+    "source_text": "眼底检查示微动脉瘤伴硬性渗出，BCVA 0.5（右眼）。无DR或轻度NPDR。",
+    "confidence": "low",
+    "reason": "low_confidence_inference: high impact requires >= 0.8 confidence"
+  },
+  "vision_symptom": {
+    "value": [
+      {
+        "operator": "=",
+        "operand": "视物模糊"
+      }
+    ],
+    "status": "inferred",
+    "source_text": "近半年视力下降明显",
+    "confidence": "medium"
+  },
+  "visual_acuity": {
+    "value": [
+      {
+        "operator": "=",
+        "operand": 0.5
+      }
+    ],
+    "status": "provided",
+    "source_text": "BCVA 0.5（右眼）",
+    "confidence": "high"
+  },
+  "pregnancy_with_diabetes_status": {
+    "value": [],
+    "status": "not_applicable",
+    "source_text": null,
+    "confidence": null,
+    "reason": "na_rule: pregnancy_with_diabetes_status = N/A"
+  },
+  "sex": {
+    "value": [
+      {
+        "operator": "=",
+        "operand": "男"
+      }
+    ],
+    "status": "provided",
+    "source_text": "user_provided",
+    "confidence": "high"
+  },
+  "age": {
+    "value": [
+      {
+        "operator": "=",
+        "operand": 58
+      }
+    ],
+    "status": "provided",
+    "source_text": "user_provided",
+    "confidence": "high"
+  }
+}

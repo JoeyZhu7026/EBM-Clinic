@@ -1,0 +1,196 @@
+[
+  {
+    "rule_id": "SCREEN-001",
+    "rule_type": "screening",
+    "rule_conditions": {
+      "$and": [
+        {
+          "field": "diabetes_type",
+          "operator": "=",
+          "value": "1型"
+        },
+        {
+          "field": "diabetes_onset_age",
+          "operator": "<",
+          "value": 12
+        }
+      ]
+    },
+    "rule_prompt": "自12岁起每年筛查",
+    "uncertainty": null,
+    "source_reference": "1型糖尿病：12岁之前发病者，自12岁起每年筛查"
+  },
+  {
+    "rule_id": "SCREEN-002",
+    "rule_type": "screening",
+    "rule_conditions": {
+      "$and": [
+        {
+          "field": "diabetes_type",
+          "operator": "=",
+          "value": "1型"
+        },
+        {
+          "field": "diabetes_onset_age",
+          "operator": ">=",
+          "value": 12
+        }
+      ]
+    },
+    "rule_prompt": "起病5年内筛查，之后应每年随诊1次",
+    "uncertainty": null,
+    "source_reference": "12岁之后发病者，起病5年内筛查，之后应每年随诊1次"
+  },
+  {
+    "rule_id": "SCREEN-003",
+    "rule_type": "screening",
+    "rule_conditions": {
+      "field": "diabetes_type",
+      "operator": "=",
+      "value": "2型"
+    },
+    "rule_prompt": "应在确诊时开始筛查眼底病变，每年随诊1次",
+    "uncertainty": null,
+    "source_reference": "2型糖尿病：应在确诊时开始筛查眼底病变，每年随诊1次"
+  },
+  {
+    "rule_id": "SCREEN-004",
+    "rule_type": "screening",
+    "rule_conditions": {
+      "field": "pregnancy_with_diabetes_status",
+      "operator": "=",
+      "value": "糖尿病合并妊娠"
+    },
+    "rule_prompt": "应在妊娠或第1次产检时筛查，妊娠后每3个月筛查，产后1年时筛查",
+    "uncertainty": null,
+    "source_reference": "对于在怀孕前诊断的糖尿病患者（糖尿病合并妊娠），应在妊娠或第1次产检时筛查，妊娠后每3个月筛查，产后1年时筛查"
+  },
+  {
+    "rule_id": "SCREEN-005",
+    "rule_type": "screening",
+    "rule_conditions": {
+      "field": "pregnancy_with_diabetes_status",
+      "operator": "=",
+      "value": "妊娠期糖尿病"
+    },
+    "rule_prompt": "在怀孕期间不需要进行眼底检查",
+    "uncertainty": {
+      "level": "high",
+      "reason": "对于妊娠期糖尿病患者高质量的研究较少，目前尚无统一认识"
+    },
+    "source_reference": "AAO指南提到妊娠期糖尿病患者在怀孕期间不需要进行眼底检查。"
+  },
+  {
+    "rule_id": "SCREEN-006",
+    "rule_type": "screening",
+    "rule_conditions": {
+      "field": "dr_severity",
+      "operator": "=",
+      "value": "无DR"
+    },
+    "rule_prompt": "至少每1～2年复查1次",
+    "uncertainty": null,
+    "source_reference": "无DR者至少每1～2年复查1次"
+  },
+  {
+    "rule_id": "SCREEN-007",
+    "rule_type": "screening",
+    "rule_conditions": {
+      "field": "dr_severity",
+      "operator": "=",
+      "value": "轻度NPDR"
+    },
+    "rule_prompt": "每6～12个月复查1次",
+    "uncertainty": null,
+    "source_reference": "轻度NPDR患者每6～12个月复查1次"
+  },
+  {
+    "rule_id": "SCREEN-008",
+    "rule_type": "screening",
+    "rule_conditions": {
+      "field": "dr_severity",
+      "operator": "=",
+      "value": "中度NPDR"
+    },
+    "rule_prompt": "每3～6个月复查1次",
+    "uncertainty": null,
+    "source_reference": "中度NPDR患者每3～6个月复查1次"
+  },
+  {
+    "rule_id": "SCREEN-009",
+    "rule_type": "screening",
+    "rule_conditions": {
+      "field": "dr_severity",
+      "operator": "=",
+      "value": "重度NPDR"
+    },
+    "rule_prompt": "随访频率应＜3个月",
+    "uncertainty": null,
+    "source_reference": "重度NPDR患者随访频率应＜3个月"
+  },
+  {
+    "rule_id": "SCREEN-010",
+    "rule_type": "screening",
+    "rule_conditions": {
+      "field": "dr_severity",
+      "operator": "=",
+      "value": "PDR"
+    },
+    "rule_prompt": "随访频率可考虑1个月",
+    "uncertainty": {
+      "level": "moderate",
+      "reason": "可考虑"
+    },
+    "source_reference": "PDR患者随访频率可考虑1个月"
+  },
+  {
+    "rule_id": "SCREEN-011",
+    "rule_type": "screening",
+    "rule_conditions": {
+      "field": "dme_type",
+      "operator": "=",
+      "value": "CI-DME"
+    },
+    "rule_prompt": "每月随访1次",
+    "uncertainty": null,
+    "source_reference": "CI-DME患者每月随访1次"
+  },
+  {
+    "rule_id": "SCREEN-012",
+    "rule_type": "screening",
+    "rule_conditions": {
+      "field": "dme_type",
+      "operator": "=",
+      "value": "NCI-DME"
+    },
+    "rule_prompt": "每3个月随访1次",
+    "uncertainty": null,
+    "source_reference": "NCI-DME患者每3个月随访1次"
+  },
+  {
+    "rule_id": "SCREEN-013",
+    "rule_type": "screening",
+    "rule_conditions": {
+      "$or": [
+        {
+          "field": "visual_acuity",
+          "operator": "<=",
+          "value": 0.7
+        },
+        {
+          "field": "vision_symptom",
+          "operator": "=",
+          "value": "突发视力下降"
+        },
+        {
+          "field": "vision_symptom",
+          "operator": "=",
+          "value": "视物模糊"
+        }
+      ]
+    },
+    "rule_prompt": "及时到有眼底病医疗资源的医院就诊",
+    "uncertainty": null,
+    "source_reference": "一旦视力≤0.7（20/30或4.8）或者患者出现突发的视力下降以及视物模糊应及时到有眼底病医疗资源的医院就诊"
+  }
+]

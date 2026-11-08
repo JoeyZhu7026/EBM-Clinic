@@ -1,0 +1,21 @@
+{
+  "na_rules": [
+    {"field": "pregnancy_with_diabetes_status", "condition": "sex == '男'", "value": "N/A"},
+    {"field": "pregnancy_with_diabetes_status", "condition": "age < 12", "value": "N/A"},
+    {"field": "dme_type", "condition": "dr_severity == '无DR'", "value": "N/A"}
+  ],
+  "impact_level_map": {
+    "pregnancy_with_diabetes_status": "high",
+    "dr_severity": "high",
+    "dme_type": "high",
+    "visual_acuity": "high",
+    "diabetes_type": "high",
+    "diabetes_onset_age": "medium",
+    "vision_symptom": "medium"
+  },
+  "confidence_threshold": {
+    "high": 0.8,
+    "medium": 0.6,
+    "low": 0.0
+  }
+}
